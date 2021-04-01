@@ -1,0 +1,11 @@
+<view class="container" hover-class="none" hover-stop-propagation="false">
+    <view class="box1" hover-class="none" hover-stop-propagation="false">
+        <view class="upload" hover-class="none" hover-stop-propagation="false" bind:tap="upload">
+            上传
+        </view>
+    </view>
+    <view class="box2" hover-class="none" hover-stop-propagation="false">
+        <view class="preview" hover-class="none" hover-stop-propagation="false"></view>
+        <view class="result" hover-class="none" hover-stop-propagation="false"></view>
+    </view>
+</view>

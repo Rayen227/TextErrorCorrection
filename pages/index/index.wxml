@@ -1,1 +1,8 @@
-<view class="container" hover-class="none" hover-stop-propagation="false"></view>
+<view class="container" hover-class="none" hover-stop-propagation="false">
+    <view class="itemBox" hover-class="none" hover-stop-propagation="false">
+        <view class="item" hover-class="none" hover-stop-propagation="false"></view>
+        <view class="item" hover-class="none" hover-stop-propagation="false"></view>
+        <view class="item" hover-class="none" hover-stop-propagation="false"></view>
+        <view class="item" hover-class="none" hover-stop-propagation="false"></view>
+    </view>
+</view>

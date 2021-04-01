@@ -1,0 +1,29 @@
+.container{
+    display: inline-block;
+    width: 100%;
+    background-color: aqua;
+    padding: 0;
+}
+.box1{
+    width: 100%;
+    height: 200rpx;
+    background-color: blue;
+}
+
+.box2{
+    width: 100%;
+    height: auto;
+    background-color: rgb(90, 90, 173);
+}
+
+.preview{
+    width: 100%;
+    height: 500rpx;
+    background-color: chocolate;
+}
+
+.result{
+    width: 100%;
+    height: 512rpx;
+    background-color: coral;
+}
