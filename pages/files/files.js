@@ -27,7 +27,7 @@ Page({
             type: 'file',
             success(res) {
 
-                console.log(res);
+                // console.log(res);
 
                 if (res.tempFiles[0].size >= 1000000) {
                     console.log('文件过大');
@@ -48,37 +48,44 @@ Page({
                     return;
                 }
 
-                then.fAc(res.tempFiles[0].path, res.tempFiles[0].name.fileType());
+                then.fRq(res.tempFiles[0].path, res.tempFiles[0].name.fileType());
             }
         });
     },
 
-    fAc(url, type) {
+    fRq(url, type) {
 
         wx.cloud.uploadFile({
             cloudPath: 'textCorr/' + md5.hex_md5(time.getTime() + app.globalData.openid) + type, // 上传至云端的路径
             filePath: url, //本地路径
             success: res => {
                 // 返回文件 ID
-                console.log(res.fileID);
+                // console.log(res.fileID);
+                wx.cloud.getTempFileURL({
+                    fileList: [res.fileID],
+                    success: res => {
+                        var src = res.fileList[0].tempFileURL;
+                        // wx.request({
+                        //     url: '',
+                        //     data: {},
+                        //     header: {'content-type':'application/json'},
+                        //     method: 'GET',
+                        //     dataType: 'json',
+                        //     responseType: 'text',
+                        //     success: (result)=>{
 
+                        //     },
+                        //     fail: ()=>{},
+                        //     complete: ()=>{}
+                        // });
+                    },
+                    fail: console.error
+                });
             },
             fail: console.error
         });
 
-        // wx.cloud.getTempFileURL({
-        //     fileList: ['cloud://xxx.png'],
-        //     success: res => {
-        //         // fileList 是一个有如下结构的对象数组
-        //         // [{
-        //         //    fileID: 'cloud://xxx.png', // 文件 ID
-        //         //    tempFileURL: '', // 临时文件网络链接
-        //         //    maxAge: 120 * 60 * 1000, // 有效期
-        //         // }]
-        //         console.log(res.fileList)
-        //     },
-        //     fail: console.error
-        // });
+
 
     },
 

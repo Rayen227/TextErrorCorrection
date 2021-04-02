@@ -1,4 +1,6 @@
 // app.js
+const dbf = require('./utils/dbf.js');
+const md5 = require('./utils/md5.js');
 
 App({
     onLaunch() {
@@ -13,7 +15,7 @@ App({
         wx.login({
             success: res => {
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                console.log(res);
+                // console.log(res);
                 wx.request({
                     url: 'https://api.weixin.qq.com/sns/jscode2session',
                     data: {
@@ -29,6 +31,21 @@ App({
                     success: (result) => {
                         then.globalData.openid = result.data.openid;
                         // console.log(then.globalData.openid);
+                        wx.cloud.database().collection('Users').where({
+                            uid: md5.hex_md5(result.data.openid)
+                        }).get({
+                            success: function (res) {
+                                if (res.data.length == 0) {
+                                    wx.redirectTo({
+                                        url: '../login/login',
+                                        fail: function (err) {
+                                            console.log(err);
+                                        }
+                                    });
+                                }
+
+                            }
+                        })
 
                     },
                     fail: () => { },
