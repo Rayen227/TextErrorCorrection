@@ -10,13 +10,59 @@ Page({
      * 页面的初始数据
      */
     data: {
-        acFileType: ['.docx', '.pdf', '.txt', '.doc']
+        acFileType: ['.docx', '.pdf', '.txt', '.doc'],
+        scale: {}
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+
+        this.loadAni();
+
+
+
+
+
+
+    },
+
+    loadAni() {
+        // 创建动画实例(animation)
+        var animation = wx.createAnimation({
+            duration: 2000,//动画持续时间
+            timingFunction: 'linear',
+            //具体配置项请查看文档
+        })
+
+        // 建立标识(用于循环)
+        this.animation = animation
+        var next = true;
+
+        // 无限循环动画
+        setInterval(function () {
+
+            if (next) {
+                // 你要执行动画链(详见文档)
+                this.animation.scale(1.5).step()
+                // ----------------------- 
+                next = !next;
+            }
+
+            else {
+                // 你要执行动画链(详见文档)
+                this.animation.scale(1).step()
+                // -----------------------
+                next = !next;
+            }
+
+            // 导出动画
+            this.setData({
+                scale: animation.export()
+            })
+
+        }.bind(this), 2000);
     },
 
     upload() {

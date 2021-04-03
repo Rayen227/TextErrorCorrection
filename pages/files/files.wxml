@@ -1,11 +1,14 @@
 <view class="container" hover-class="none" hover-stop-propagation="false">
     <view class="box1" hover-class="none" hover-stop-propagation="false">
-        <view class="upload" hover-class="none" hover-stop-propagation="false" bind:tap="upload">
-            上传
-        </view>
+        <image animation="{{scale}}" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/upload.png" class="upload" bind:tap="upload"></image>
+        <text bind:tap="upload">\n上传文件</text>
     </view>
     <view class="box2" hover-class="none" hover-stop-propagation="false">
-        <view class="preview" hover-class="none" hover-stop-propagation="false"></view>
-        <view class="result" hover-class="none" hover-stop-propagation="false"></view>
+        <view class="preview" hover-class="none" hover-stop-propagation="false">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </view>
+        <view class="result" hover-class="none" hover-stop-propagation="false">
+            <editor read-only="true"></editor>
+        </view>
     </view>
 </view>

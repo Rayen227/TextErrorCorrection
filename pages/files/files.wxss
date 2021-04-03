@@ -1,29 +1,59 @@
 .container{
     display: inline-block;
     width: 100%;
-    background-color: aqua;
     padding: 0;
 }
 .box1{
     width: 100%;
     height: 200rpx;
-    background-color: blue;
+    background-color: #fff;
+}
+
+.box1 image{
+    width: 76rpx;
+    height: 64rpx;
+    margin-left: 340rpx;
+    margin-top: 36rpx;
+}
+
+.box1 text{
+    font-size: 28rpx;
+    color: rgb(180, 180, 180);
+    line-height: 24rpx;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .box2{
     width: 100%;
     height: auto;
-    background-color: rgb(90, 90, 173);
 }
 
 .preview{
     width: 100%;
     height: 500rpx;
-    background-color: chocolate;
+}
+
+.preview textarea{
+    border: 1px solid rgb(167, 167, 167);
+    border-radius: 2%;
+    width: 90%;
+    height: 400rpx;
+    margin-left: 5%;
+    /* margin-top: 50rpx; */
 }
 
 .result{
     width: 100%;
-    height: 512rpx;
-    background-color: coral;
+    height: 500rpx;
 }
+
+.result editor{
+    width: 90%;
+    height: 450rpx;
+    margin-left: 5%;
+    border-radius: 2%;
+    border: 1px solid rgb(167, 167, 167);
+}
+
