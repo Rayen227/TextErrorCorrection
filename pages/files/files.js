@@ -65,26 +65,19 @@ Page({
                     fileList: [res.fileID],
                     success: res => {
                         var src = res.fileList[0].tempFileURL;
-                        wx.request({
-                            url: 'https://correct.cn1.utools.club/file',
-                            data: {'url':src},
-                            header: {'content-type':'application/json'},
-                            method: 'GET',
-                            dataType: 'json',
-                            responseType: 'text',
-                            success: (result)=>{
-                                if(result.data.code==20000){
-                                    console.log(res.data)
-                                    var res = res.data.data
-                                }else{
-                                    console.log(result)
-                                }
-                            },
-                            fail: (err)=>{
-                                console.log("请求失败",err)
-                            },
-                            complete: ()=>{}
-                        });
+                        // wx.request({
+                        //     url: '',
+                        //     data: {"url":url},
+                        //     header: {'content-type':'application/json'},
+                        //     method: 'GET',
+                        //     dataType: 'json',
+                        //     responseType: 'text',
+                        //     success: (result)=>{
+
+                        //     },
+                        //     fail: ()=>{},
+                        //     complete: ()=>{}
+                        // });
                     },
                     fail: console.error
                 });
@@ -96,7 +89,19 @@ Page({
 
     },
 
-
+    fRq_1(url, type){
+        wx.uploadFile({
+            url:'',
+            filePath:url,
+            data:{"type":type},
+            success(res){
+                console.log(res)
+            },
+            fail(err){
+                console.log(err)
+            }
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
