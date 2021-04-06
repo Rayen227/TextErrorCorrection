@@ -24,7 +24,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.16.0",
+	"libVersion": "2.14.4",
 	"appid": "wxd4a2c5fb5db0bc10",
 	"projectname": "TextErrorCorrection",
 	"debugOptions": {
