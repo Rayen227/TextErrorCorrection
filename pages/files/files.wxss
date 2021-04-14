@@ -49,11 +49,20 @@
     height: 500rpx;
 }
 
-.result editor{
+.result .context{
     width: 90%;
     height: 450rpx;
     margin-left: 5%;
     border-radius: 2%;
     border: 1px solid rgb(167, 167, 167);
+
+    position: absolute;
+    text-overflow:ellipsis;
+    word-wrap:break-word
+
 }
+
+/* .result .context text{
+    background-color: aqua;
+} */
 

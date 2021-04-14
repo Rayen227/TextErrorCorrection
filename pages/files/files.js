@@ -11,7 +11,8 @@ Page({
      */
     data: {
         acFileType: ['.docx', '.pdf', '.txt', '.doc'],
-        scale: {}
+        scale: {},
+        resli: []
     },
 
     /**
@@ -19,14 +20,22 @@ Page({
      */
     onLoad: function (options) {
 
+
+
         this.loadAni();
 
-
+        // this.setRes();
 
 
 
 
     },
+
+
+    ctor() {
+        this.curRes = [];
+    },
+
 
     loadAni() {
         // 创建动画实例(animation)
@@ -65,6 +74,8 @@ Page({
         }.bind(this), 2000);
     },
 
+
+
     upload() {
         var then = this;
 
@@ -100,6 +111,8 @@ Page({
     },
 
     fRq(url, type) {
+        var then = this;
+
 
         wx.cloud.uploadFile({
             cloudPath: 'textCorr/' + md5.hex_md5(time.getTime() + app.globalData.openid) + type, // 上传至云端的路径
@@ -111,19 +124,22 @@ Page({
                     fileList: [res.fileID],
                     success: res => {
                         var src = res.fileList[0].tempFileURL;
-                        // wx.request({
-                        //     url: '',
-                        //     data: {"url":url},
-                        //     header: {'content-type':'application/json'},
-                        //     method: 'GET',
-                        //     dataType: 'json',
-                        //     responseType: 'text',
-                        //     success: (result)=>{
+                        wx.request({
+                            url: 'https://correct.cn1.utools.club/file',
+                            data: {},
+                            header: { 'content-type': 'application/json' },
+                            method: 'GET',
+                            dataType: 'json',
+                            responseType: 'text',
+                            success: (res) => {
+                                // console.log("fRq:", res);
+                                then.curRes = res.data.data.result;
+                                then.setRes();
 
-                        //     },
-                        //     fail: ()=>{},
-                        //     complete: ()=>{}
-                        // });
+                            },
+                            fail: () => { },
+                            complete: () => { }
+                        });
                     },
                     fail: console.error
                 });
@@ -135,19 +151,27 @@ Page({
 
     },
 
-    fRq_1(url, type){
-        wx.uploadFile({
-            url:'',
-            filePath:url,
-            data:{"type":type},
-            success(res){
-                console.log(res)
-            },
-            fail(err){
-                console.log(err)
-            }
-        })
+    setRes() {
+        // console.log(this.curRes);
+        var rli = [];
+        for (var i = 0; i < this.curRes.length; i++) {
+            rli[i] = { 'text': this.curRes[i].text, 'bg': this.curRes[i].tag == 0 ? "white" : "aqua" }
+        }
+
+        // console.log(rli);
+
+        this.setData({
+            resli: rli
+        });
+
     },
+
+    // gtRText() {
+    //     return "<text color=red>真的吗</text>";
+    // },
+
+
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
