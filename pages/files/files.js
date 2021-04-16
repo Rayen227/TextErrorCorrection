@@ -113,9 +113,10 @@ Page({
     fRq(url, type) {
         var then = this;
 
-
+        var fname = time.getTime() + app.globalData.openid;
+        console.log(new Date().getTime());
         wx.cloud.uploadFile({
-            cloudPath: 'textCorr/' + md5.hex_md5(time.getTime() + app.globalData.openid) + type, // 上传至云端的路径
+            cloudPath: 'textCorr/' + md5.hex_md5(fname) + type, // 上传至云端的路径
             filePath: url, //本地路径
             success: res => {
                 // 返回文件 ID
@@ -126,7 +127,9 @@ Page({
                         var src = res.fileList[0].tempFileURL;
                         wx.request({
                             url: 'https://correct.cn1.utools.club/file',
-                            data: {},
+                            data: {
+                                url:src
+                            },
                             header: { 'content-type': 'application/json' },
                             method: 'GET',
                             dataType: 'json',
