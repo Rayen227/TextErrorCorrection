@@ -1,7 +1,8 @@
 // pages/files/files.js
 const md5 = require('../../utils/md5.js');
+const window = require('../../utils/window.js');
 const app = getApp();
-const time = new Date();
+// const time = new Date();
 
 
 Page({
@@ -12,7 +13,11 @@ Page({
     data: {
         acFileType: ['.docx', '.pdf', '.txt', '.doc'],
         scale: {},
-        resli: []
+        resli: [],
+        iconSrc: '',
+        iconVis: "none",
+        btnVis: "none",
+        curText: ""
     },
 
     /**
@@ -20,9 +25,9 @@ Page({
      */
     onLoad: function (options) {
 
+        window.loading("");
 
-
-        this.loadAni();
+        // this.loadAni();
 
         // this.setRes();
 
@@ -34,6 +39,7 @@ Page({
 
     ctor() {
         this.curRes = [];
+        this.curText = '';
     },
 
 
@@ -78,7 +84,7 @@ Page({
 
     upload() {
         var then = this;
-
+        var iconSrc = '';
         wx.chooseMessageFile({
             count: 1,
             type: 'file',
@@ -92,10 +98,11 @@ Page({
                 }
 
                 var ac = false;
+                var ftype = res.tempFiles[0].name.fileType();
 
                 for (var i = 0; i < then.data.acFileType.length; i++) {
-                    if (res.tempFiles[0].name.fileType() == then.data.acFileType[i] ||
-                        res.tempFiles[0].name.fileType() == then.data.acFileType[i].toUpperCase()) {
+                    if (ftype == then.data.acFileType[i] ||
+                        ftype == then.data.acFileType[i].toUpperCase()) {
                         ac = true;
                     }
                 }
@@ -105,18 +112,69 @@ Page({
                     return;
                 }
 
-                then.fRq(res.tempFiles[0].path, res.tempFiles[0].name.fileType());
+                then.rfRq(res.tempFiles[0].path, ftype);
+
+                if (ftype == '.doc' || ftype == '.docx' || ftype == '.DOC' || ftype == '.DOCX') {
+                    iconSrc = 'docicon';
+                }
+                else if (ftype == '.pdf' || ftype == '.PDF') {
+                    iconSrc = 'pdficon';
+                }
+                else if (ftype == '.txt' || ftype == '.TXT') {
+                    iconSrc = 'txticon';
+                }
+
+                then.setData({
+                    iconSrc: 'cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/' + iconSrc + '.png'
+                });
+
+                // console.log(then.data.iconSrc);
+
             }
         });
     },
 
-    fRq(url, type) {
+    input(e) {
+        this.curText = e.detail.value;
+    },
+
+    submmit() {
+        var then = this;
+        wx.request({
+            url: 'https://correct.cn1.utools.club/correct',
+            data: {
+                text: then.curText
+            },
+            header: { 'content-type': 'application/json' },
+            method: 'POST',
+            dataType: 'json',
+            responseType: 'text',
+            success: (res) => {
+                if (res.data.code != 2000) {
+                    window.error(res.data.code);
+                    return;
+                }
+
+                window.success("纠错成功");
+
+                console.log("纠错结果", res);
+                then.curRes = res.data.data.result;
+                then.setRes();
+            },
+            fail: () => {
+
+            },
+            complete: () => { }
+        });
+    },
+
+    rfRq(url, type) {
         var then = this;
 
-        var fname = time.getTime() + app.globalData.openid;
-        console.log(new Date().getTime());
+        window.loading("上传中");
+
         wx.cloud.uploadFile({
-            cloudPath: 'textCorr/' + md5.hex_md5(fname) + type, // 上传至云端的路径
+            cloudPath: 'textCorr/' + md5.hex_md5(new Date().getTime() + app.globalData.openid) + type, // 上传至云端的路径
             filePath: url, //本地路径
             success: res => {
                 // 返回文件 ID
@@ -126,21 +184,39 @@ Page({
                     success: res => {
                         var src = res.fileList[0].tempFileURL;
                         wx.request({
-                            url: 'https://correct.cn1.utools.club/file',
+                            url: 'https://correct.cn1.utools.club/readfile',
                             data: {
-                                url:src
+                                url: src,
+                                type: 'text'
                             },
                             header: { 'content-type': 'application/json' },
                             method: 'GET',
                             dataType: 'json',
                             responseType: 'text',
                             success: (res) => {
-                                // console.log("fRq:", res);
-                                then.curRes = res.data.data.result;
-                                then.setRes();
+                                // console.log(res);
+                                // return;
+                                if (res.data.code != 2000) {
+                                    window.error(res.data.code);
+                                    return;
+                                }
+
+                                window.success("上传成功");
+                                // window.error(404);
+
+                                console.log("文字识别结果", res);
+
+                                // then.curRes = res.data.data.result;
+                                then.curText = res.data.data.result;
+
+                                then.fontEnd();
+
+                                // then.setRes();
 
                             },
-                            fail: () => { },
+                            fail: () => {
+
+                            },
                             complete: () => { }
                         });
                     },
@@ -149,16 +225,23 @@ Page({
             },
             fail: console.error
         });
-
-
-
     },
+
+    fontEnd() {
+        this.setData({
+            curText: this.curText,
+            btnVis: "block",
+            iconVis: "inline-block"
+        });
+        // console.log(this.data.curText);
+    },
+
 
     setRes() {
         // console.log(this.curRes);
         var rli = [];
         for (var i = 0; i < this.curRes.length; i++) {
-            rli[i] = { 'text': this.curRes[i].text, 'bg': this.curRes[i].tag == 0 ? "white" : "aqua" }
+            rli[i] = { 'text': this.curRes[i].text, 'bg': this.curRes[i].tag == 0 ? "white" : "#00B26A" }
         }
 
         // console.log(rli);
@@ -179,7 +262,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        window.success("");
     },
 
     /**
