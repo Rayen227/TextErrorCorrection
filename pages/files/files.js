@@ -17,15 +17,22 @@ Page({
         iconSrc: '',
         iconVis: "none",
         btnVis: "none",
-        curText: ""
+        curText: "",
+        topImage: ''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        window.loading("加载中");
 
-        window.loading("");
+        console.log("main:", options.type);
+
+        this.setData({
+            topImage: 'cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/' + options.type + '.png'
+        });
+
 
         // this.loadAni();
 

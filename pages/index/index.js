@@ -7,22 +7,31 @@ Page({
 
     },
     onLoad() {
-        // wx.request({
-        //     url: 'https://aip.baidubce.com/oauth/2.0/token',
-        //     data: {
-        //         grant_type: 'client_credentials',
-        //         client_id: 'HuSsd7zPxhf8muuxFuNfRIOS',
-        //         client_secret: 'Zgty5G1et7MlPSeIOD7TBQK51Y9M7Khv',
-        //     },
-        //     header: { 'content-type': 'application/json' },
-        //     method: 'GET',
-        //     dataType: 'json',
-        //     responseType: 'text',
-        //     success: (result) => {
-        //         console.log(result);
-        //     },
-        //     fail: () => { },
-        //     complete: () => { }
-        // });
+
     },
+
+    doc() {
+        wx.navigateTo({
+            url: '../files/files?type=document'
+        });
+    },
+
+    adu() {
+        wx.navigateTo({
+            url: '../files/files?type=aduio'
+        });
+    },
+
+    img() {
+        wx.navigateTo({
+            url: '../files/files?type=image'
+        });
+    },
+
+    text() {
+        wx.navigateTo({
+            url: '../files/files?type=text'
+        });
+    }
+
 })
