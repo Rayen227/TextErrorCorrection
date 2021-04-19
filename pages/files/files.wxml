@@ -1,8 +1,8 @@
 <view class="container" hover-class="none" hover-stop-propagation="false">
     <view class="box1" hover-class="none" hover-stop-propagation="false">
         <view bind:tap="upload">
-            <image class="upload" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/upload.png"></image>
-            <text>\n上传文件</text>
+            <image class="upload" src="{{topImage}}"></image>
+            <!-- <text>\n上传文件</text> -->
         </view>
         <!-- <image class="file" src="pdficon.png"></image> -->
         <image class="file" style="display:{{iconVis}};" src="{{iconSrc}}"></image>
@@ -15,7 +15,8 @@
                 <image class="resultIcon" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/result.png"></image>
                 <!-- <view class="resuleTip" selectable="false" space="false" decode="false">纠错结果</view> -->
                 <!-- </view> -->
-                <image class="sub" style="display:{{btnVis}};" bind:tap="submmit" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/submmit.png">
+                <!-- <image class="sub" style="display:{{btnVis}};" bind:tap="submmit" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/submmit.png"> -->
+                <image class="sub" bind:tap="submmit" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/submmit.png">
                     <!-- <image class="sub" bind:tap="submmit" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/submmit.png"> -->
                 </image>
             </view>

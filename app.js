@@ -56,12 +56,13 @@ App({
     },
     globalData: {
         userInfo: null,
-        openid: null
+        openid: null,
+        text: ''
     }
 });
 
 
 String.prototype.fileType = function () {
     var i = this.lastIndexOf(".");
-    return this.substring(i);
+    return this.substring(i + 1);
 };

@@ -13,6 +13,7 @@
     background-color: blue;
 }
 
+
 .item{
     display: inline-block;
     width: 300rpx;
@@ -23,4 +24,16 @@
     margin-top: 25rpx;
     margin-bottom: 25rpx;
     border-radius: 5%;
+}
+
+.item image{
+    width: 150rpx;
+    height: 150rpx;
+    margin-left: 75rpx;
+    margin-top: 25rpx;
+}
+
+.item view{
+    margin-left: 84rpx;
+    margin-top: 25rpx;
 }
