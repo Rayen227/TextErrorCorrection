@@ -21,6 +21,14 @@ function error(code) {
     });
 }
 
+function prompt(tip) {
+    wx.showModal({
+        title: '提示',
+        content: tip,
+        showCancel: false
+    })
+}
+
 module.exports = {
-    success, loading, error
+    success, loading, error, prompt
 }
