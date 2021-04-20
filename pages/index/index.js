@@ -134,7 +134,7 @@ Page({
 
     img() {
 
-        this.upload(this.imgf, function (e) {
+        this.upload(this.imgf, 'image_write', function (e) {
             if (!e) {
                 return;
             }
@@ -145,7 +145,7 @@ Page({
     },
 
     text() {
-        app.globalData.text = res.data.data.result;
+        app.globalData.text = '';
         wx.navigateTo({
             url: '../files/files?type=text&ext=none'
         });
