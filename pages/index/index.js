@@ -139,7 +139,7 @@ Page({
                 return;
             }
             wx.navigateTo({
-                url: '../files/files?type=image&ext=' + e.ext
+                url: '../files/files?type=image_write&ext=' + e.ext
             });
         });
     },
