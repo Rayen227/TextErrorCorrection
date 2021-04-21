@@ -13,6 +13,10 @@ function loading(tip) {
     });
 }
 
+function noloading() {
+    wx.hideLoading({});
+}
+
 function error(code) {
     wx.showToast({
         title: "error:" + code,
@@ -30,5 +34,5 @@ function prompt(tip) {
 }
 
 module.exports = {
-    success, loading, error, prompt
+    success, loading, noloading, error, prompt
 }
