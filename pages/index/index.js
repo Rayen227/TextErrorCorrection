@@ -21,6 +21,17 @@ Page({
 
     upload(acFileType, rqType, callback) {
         var then = this;
+
+        wx.chooseImage({
+            count: 1,
+            sourceType: ['album'],
+            success: function (res) {
+                // 这里无论用户是从相册选择还是直接用相机拍摄，拍摄完成后的图片临时路径都会传递进来
+                console.log(res);
+            }
+        });
+
+        return;
         wx.chooseMessageFile({
             count: 1,
             type: 'file',
@@ -55,7 +66,7 @@ Page({
     rfRq(url, rqType, type, callback) {
         var then = this;
 
-        window.loading("上传中");
+        window.loading("识别中");
 
         wx.cloud.uploadFile({
             cloudPath: 'textCorr/' + md5.hex_md5(new Date().getTime() + app.globalData.openid) + '.' + type, // 上传至云端的路径
@@ -79,12 +90,24 @@ Page({
                             responseType: 'text',
                             success: (res) => {
 
-                                if (res.data.code != 2000) {
-                                    window.error(res.data.code);
+                                if (res.statusCode == 404) {
+                                    window.noloading();
+                                    window.prompt("维护中");
                                     return;
                                 }
 
-                                window.success("上传成功");
+                                if (res.statusCode >= 300) {
+                                    window.noloading();
+                                    window.prompt("网络错误");
+                                    return;
+                                }
+                                if (res.data.code != 2000) {
+                                    window.error(res.data.code);
+                                    // window.prompt("网络不可用");
+                                    return;
+                                }
+
+                                window.success("识别成功");
                                 // window.error(404);
 
                                 console.log("文字识别结果", res);
@@ -96,7 +119,7 @@ Page({
 
                             },
                             fail: () => {
-
+                                window.error("网络错误");
                             },
                             complete: () => { }
                         });
@@ -133,19 +156,29 @@ Page({
     },
 
     img() {
+        var then = this;
+        wx.showActionSheet({
+            itemList: ['手写体', '印刷体'],
+            itemColor: '#000000',
+            success: (result) => {
 
-        this.upload(this.imgf, function (e) {
-            if (!e) {
-                return;
-            }
-            wx.navigateTo({
-                url: '../files/files?type=image_write&ext=' + e.ext
-            });
+                then.upload(then.imgf, then.RQTYPE[result.tapIndex + 1], function (e) {
+                    if (!e) {
+                        return;
+                    }
+                    wx.navigateTo({
+                        url: '../files/files?type=image&ext=' + e.ext
+                    });
+                });
+            },
+            fail: () => { },
+            complete: () => { }
         });
+
     },
 
     text() {
-        app.globalData.text = res.data.data.result;
+        app.globalData.text = '';
         wx.navigateTo({
             url: '../files/files?type=text&ext=none'
         });
