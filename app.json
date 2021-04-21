@@ -4,6 +4,7 @@
         "pages/files/files",
         "pages/test/test",
         "pages/login/login",
+        "pages/myself/myself",
         "pages/logs/logs"
     ],
     "window": {
@@ -11,6 +12,19 @@
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "Weixin",
         "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "custom": true,
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/myself/myself",
+                "text": "我的"
+            }
+        ]
     },
     "style": "v2",
     "sitemapLocation": "sitemap.json"

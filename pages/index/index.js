@@ -19,22 +19,22 @@ Page({
         this.RQTYPE = ['text', 'image_write', 'image_print', 'audio'];
     },
 
+    /**
+    * @function 上传文件
+    * @description 上传文件到云存储，成功后在回调函数中调用文件识别函数rfRq
+    * @param acFileType Array<String> 可接受的文件类型，内容是拓展名
+    * @param rqType String 发送请求的类型/路由，内容应该是 ['text', 'image_write', 'image_print', 'audio']中之一
+    * @param callback function completed类型的回调函数
+    * @return void
+    * @author wzq 2021/04/21 
+    * @example
+    */
     upload(acFileType, rqType, callback) {
         var then = this;
-
-        wx.chooseImage({
-            count: 1,
-            sourceType: ['album'],
-            success: function (res) {
-                // 这里无论用户是从相册选择还是直接用相机拍摄，拍摄完成后的图片临时路径都会传递进来
-                console.log(res);
-            }
-        });
-
-        return;
         wx.chooseMessageFile({
             count: 1,
             type: 'file',
+            extension: acFileType,
             success(res) {
 
                 var ac = false;
@@ -62,7 +62,17 @@ Page({
         });
     },
 
-
+    /**
+    * @function 文件识别
+    * @description 请求文件识别接口
+    * @param url String 本地文件的路径
+    * @param rqType String 发送请求的类型/路由，内容应该是 ['text', 'image_write', 'image_print', 'audio']中之一
+    * @param type String 本次上传文件的拓展名
+    * @param callback function completed类型的回调函数
+    * @return void
+    * @author wzq 2021/04/21 
+    * @example
+    */
     rfRq(url, rqType, type, callback) {
         var then = this;
 
@@ -145,6 +155,7 @@ Page({
     },
 
     adu() {
+
         this.upload(this.aduf, 'audio', function (e) {
             if (!e) {
                 return;
@@ -157,19 +168,39 @@ Page({
 
     img() {
         var then = this;
+
         wx.showActionSheet({
             itemList: ['手写体', '印刷体'],
             itemColor: '#000000',
             success: (result) => {
+                // console.log(result);
+                // then.upload(then.imgf, then.RQTYPE[result.tapIndex + 1], function (e) {
+                //     if (!e) {
+                //         return;
+                //     }
+                //     wx.navigateTo({
+                //         url: '../files/files?type=image&ext=' + e.ext
+                //     });
+                // });
+                wx.chooseImage({
+                    count: 1,
+                    sourceType: ['album'],
+                    success: function (res) {
+                        console.log(res);
+                        then.rfRq(res.tempFilePaths[0], then.RQTYPE[result.tapIndex + 1],
+                            res.tempFilePaths[0].fileType(), function (e) {
+                                if (!e) {
+                                    return;
+                                }
+                                wx.navigateTo({
+                                    url: '../files/files?type=image&ext=' + e.ext
+                                });
+                            });
 
-                then.upload(then.imgf, then.RQTYPE[result.tapIndex + 1], function (e) {
-                    if (!e) {
-                        return;
                     }
-                    wx.navigateTo({
-                        url: '../files/files?type=image&ext=' + e.ext
-                    });
                 });
+
+
             },
             fail: () => { },
             complete: () => { }
