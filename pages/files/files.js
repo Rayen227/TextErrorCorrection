@@ -49,8 +49,6 @@ Page({
         this.curText = '';
     },
 
-
-
     setRes() {
         // console.log(this.curRes);
         var rli = [];
