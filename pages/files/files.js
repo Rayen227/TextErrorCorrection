@@ -30,7 +30,6 @@ Page({
         console.log("main:", options.type);
 
 
-
         this.ctor();
 
         this.curText = app.globalData.text;

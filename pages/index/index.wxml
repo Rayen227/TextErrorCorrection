@@ -1,20 +1,20 @@
-<view class="container" hover-class="none" hover-stop-propagation="false">
+<view class="container" style="background-image:url(../../image/background.jpg);" hover-class="none" hover-stop-propagation="false">
     <view class="itemBox" hover-class="none" hover-stop-propagation="false">
-        <view bind:tap="doc" class="item" hover-class="none" hover-stop-propagation="false">
-            <image class="" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/document.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
-            <view class="" selectable="false" space="false" decode="false">\n上传文档</view>
+        <view bind:tap="doc" class="item1" hover-class="none" hover-stop-propagation="false">
+            <image class="itemimg" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/document.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+            <view class="itembox" selectable="false" space="false" decode="false">\n上传文档</view>
         </view>
-        <view bind:tap="img" class="item" hover-class="none" hover-stop-propagation="false">
-            <image class="" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/image.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
-            <view class="" selectable="false" space="false" decode="false">\n上传图片</view>
+        <view bind:tap="img" class="item2" hover-class="none" hover-stop-propagation="false">
+            <image class="itemimg" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/image.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+            <view class="itembox" selectable="false" space="false" decode="false">\n上传图片</view>
         </view>
-        <view bind:tap="adu" class="item" hover-class="none" hover-stop-propagation="false">
-            <image class="" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/document.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
-            <view class="" selectable="false" space="false" decode="false">\n上传音频</view>
+        <view bind:tap="adu" class="item3" hover-class="none" hover-stop-propagation="false">
+            <image class="itemimg" src="../../image/audio.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+            <view class="itembox" selectable="false" space="false" decode="false">\n上传音频</view>
         </view>
-        <view bind:tap="text" class="item" hover-class="none" hover-stop-propagation="false">
-            <image class="" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/document.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
-            <view class="" selectable="false" space="false" decode="false">\n文本输入</view>
+        <view bind:tap="text" class="item4" hover-class="none" hover-stop-propagation="false">
+            <image class="itemimg" src="../../image/text.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+            <view class="itembox" selectable="false" space="false" decode="false">\n文本输入</view>
         </view>
     </view>
 </view>
