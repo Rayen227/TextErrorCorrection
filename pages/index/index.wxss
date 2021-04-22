@@ -4,37 +4,84 @@
     width: 100%;
     height: 1131rpx;
     background-color: aqua;
+    /* background-color: aqua; */
     padding: auto;
+    background-repeat: no-repeat;
+    background-size: 750rpx 100%;
 }
 
 .itemBox{
     width: 700rpx;
     height: 700rpx;
     margin-left: 25rpx;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 
-.item{
+.item1{
     display: inline-block;
     width: 300rpx;
     height: 300rpx;
-    background-color: brown;
+    /* background-color: brown; */
+    background-image: linear-gradient(to top right,rgb(255, 84, 88), rgb(254, 149, 118));
     margin-left: 25rpx;
     margin-right: 25rpx;
     margin-top: 25rpx;
     margin-bottom: 25rpx;
-    border-radius: 5%;
+    border-radius: 10%;
+    color: white;
+    box-shadow: 0px 0px 2px 0px #987e7e;
 }
 
-.item image{
+.item2{
+    display: inline-block;
+    width: 300rpx;
+    height: 300rpx;
+    /* background-color: brown; */
+    background-image: linear-gradient(to top right,rgb(255, 84, 88), rgb(254, 149, 118));
+    margin-left: 25rpx;
+    margin-right: 25rpx;
+    margin-top: 25rpx;
+    margin-bottom: 25rpx;
+    border-radius: 10%;
+    color: white;
+}
+
+.item3{
+    display: inline-block;
+    width: 300rpx;
+    height: 300rpx;
+    /* background-color: brown; */
+    background-image: linear-gradient(to top right,rgb(255, 84, 88), rgb(254, 149, 118));
+    margin-left: 25rpx;
+    margin-right: 25rpx;
+    margin-top: 25rpx;
+    margin-bottom: 25rpx;
+    border-radius: 10%;
+    color: white;
+}
+
+.item4{
+    display: inline-block;
+    width: 300rpx;
+    height: 300rpx;
+    /* background-color: brown; */
+    background-image: linear-gradient(to top right,rgb(255, 84, 88), rgb(254, 149, 118));
+    margin-left: 25rpx;
+    margin-right: 25rpx;
+    margin-top: 25rpx;
+    margin-bottom: 25rpx;
+    border-radius: 10%;
+    color: white;
+}
+.itemimg{
     width: 150rpx;
     height: 150rpx;
     margin-left: 75rpx;
     margin-top: 25rpx;
 }
 
-.item view{
+.itembox{
     margin-left: 84rpx;
     margin-top: 25rpx;
 }

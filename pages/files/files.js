@@ -30,7 +30,6 @@ Page({
         console.log("main:", options.type);
 
 
-
         this.ctor();
 
         this.curText = app.globalData.text;
@@ -48,8 +47,6 @@ Page({
         this.curRes = [];
         this.curText = '';
     },
-
-
 
     setRes() {
         // console.log(this.curRes);
