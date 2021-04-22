@@ -1,4 +1,4 @@
-<view class="container" style="background-image:url(../../image/background.jpg);" hover-class="none" hover-stop-propagation="false">
+<view class="container" style="z-index:-1;" hover-class="none" hover-stop-propagation="false">
     <view class="itemBox" hover-class="none" hover-stop-propagation="false">
         <view bind:tap="doc" class="item1" hover-class="none" hover-stop-propagation="false">
             <image class="itemimg" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/document.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>

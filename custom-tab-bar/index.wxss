@@ -34,5 +34,12 @@
 }
 
 .tab-bar-item cover-view {
-  font-size: 10px;
+  font-size: 19rpx;
+}
+
+.tool cover-image{
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin-top: -30rpx;
 }

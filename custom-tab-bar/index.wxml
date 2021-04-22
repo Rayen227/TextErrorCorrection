@@ -1,8 +1,34 @@
-<!--miniprogram/custom-tab-bar/index.wxml-->
+<!-- miniprogram/custom-tab-bar/index.wxml -->
 <cover-view class="tab-bar">
-  <cover-view class="tab-bar-border"></cover-view>
-  <cover-view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+    <!-- <cover-view class="tab-bar-border"></cover-view> -->
+    <cover-view class="tab-bar-item" data-path="{{list[0].pagePath}}" bindtap="switchTab">
+        <cover-image src="{{selected === 0 ? list[0].selectedIconPath : list[0].iconPath}}"></cover-image>
+        <cover-view style="color: {{selected === 0 ? selectedColor : color}}">
+            {{list[0].text}}
+        </cover-view>
+    </cover-view>
+    <cover-view class="tool" style="z-index:1;" data-path="{{list[1].pagePath}}" bindtap="switchTab">
+        <cover-image src="{{list[1].iconPath}}"></cover-image>
+        <cover-view style="color: {{selected === 0 ? selectedColor : color}}"></cover-view>
+    </cover-view>
+    <cover-view class="tab-bar-item" data-path="{{list[2].pagePath}}" bindtap="switchTab">
+        <cover-image src="{{selected === 2 ? list[2].selectedIconPath : list[2].iconPath}}"></cover-image>
+        <cover-view style="color: {{selected === 2 ? selectedColor : color}}">
+            {{list[2].text}}
+        </cover-view>
+    </cover-view>
+    <cover-view class="tool" data-path="{{list[3].pagePath}}" bindtap="switchTab">
+        <cover-image src="{{list[3].iconPath}}"></cover-image>
+        <cover-view style="color: {{selected === 0 ? selectedColor : color}}"></cover-view>
+    </cover-view>
+    <cover-view class="tab-bar-item" data-path="{{list[4].pagePath}}" bindtap="switchTab">
+        <cover-image src="{{selected === 4 ? list[4].selectedIconPath : list[4].iconPath}}"></cover-image>
+        <cover-view style="color: {{selected === 4 ? selectedColor : color}}">
+            {{list[4].text}}
+        </cover-view>
+    </cover-view>
+    <!-- <cover-view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
     <cover-image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></cover-image>
     <cover-view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</cover-view>
-  </cover-view>
+  </cover-view> -->
 </cover-view>
