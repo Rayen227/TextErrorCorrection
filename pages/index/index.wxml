@@ -1,11 +1,11 @@
-<view class="container" style="z-index:-1;" hover-class="none" hover-stop-propagation="false">
+<view class="container"  hover-class="none" hover-stop-propagation="false">
     <view class="itemBox" hover-class="none" hover-stop-propagation="false">
         <view bind:tap="doc" class="item1" hover-class="none" hover-stop-propagation="false">
-            <image class="itemimg" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/document.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+            <image class="itemimg" src="../../image/document.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             <view class="itembox" selectable="false" space="false" decode="false">\n上传文档</view>
         </view>
         <view bind:tap="img" class="item2" hover-class="none" hover-stop-propagation="false">
-            <image class="itemimg" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/image.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+            <image class="itemimg" src="../../image/image.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             <view class="itembox" selectable="false" space="false" decode="false">\n上传图片</view>
         </view>
         <view bind:tap="adu" class="item3" hover-class="none" hover-stop-propagation="false">
