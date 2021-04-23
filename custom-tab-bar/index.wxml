@@ -7,7 +7,7 @@
             {{list[0].text}}
         </cover-view>
     </cover-view>
-    <cover-view class="tool" style="z-index:1;" data-path="{{list[1].pagePath}}" data-index="1" bindtap="switchTab">
+    <cover-view class="tool" data-path="{{list[1].pagePath}}" data-index="1" bindtap="switchTab">
         <cover-image src="{{list[1].iconPath}}"></cover-image>
     </cover-view>
     <cover-view class="tab-bar-item" data-path="{{list[2].pagePath}}" data-index="2" bindtap="switchTab">

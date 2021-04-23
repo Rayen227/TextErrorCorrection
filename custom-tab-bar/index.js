@@ -1,4 +1,3 @@
-const indf = require('../pages/index/index.js');
 const window = require('../utils/window.js');
 const app = getApp();
 
@@ -54,9 +53,10 @@ Component({
         ]
     },
     attached() {
-        this.setData({
-            selected: app.globalData.selected
-        })
+        // this.setData({
+        //     selected: app.globalData.selected
+        // });
+        // console.log("att:", this.data.selected);
     },
 
     methods: {
@@ -68,17 +68,20 @@ Component({
             this.setData({
                 selected: index
             });
-            app.globalData.selected = index;
+            // app.globalData.selected = index;
             if (index == 1) {
                 cam();
-                return;
             }
-            if (index == 3) {
-                return;
-            }
-            wx.switchTab({ url });
+            else if (index == 3) {
 
-            console.log(this.data.selected);
+            }
+            else {
+                wx.switchTab({ url });
+            }
+            this.setData({
+                selected: index
+            });
+            // console.log("data:", this.data.selected);
         }
     }
 });
