@@ -209,6 +209,7 @@ Page({
     },
 
     text() {
+
         app.globalData.text = '';
         wx.navigateTo({
             url: '../files/files?type=text&ext=none'

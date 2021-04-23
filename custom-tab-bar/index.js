@@ -6,33 +6,33 @@ Component({
         list: [
             {
                 pagePath: "/index/index",
-                iconPath: "/image/tab_index_sel.png",
-                selectedIconPath: "/image/tab_index.png",
+                iconPath: "/image/tab/index.png",
+                selectedIconPath: "/image/tab/_index.png",
                 text: "首页"
             },
             {
                 pagePath: "/logs/logs",
-                iconPath: "/image/tab_camera.png",
-                selectedIconPath: "/image/tab_camera.png",
+                iconPath: "/image/tab/camera.png",
+                selectedIconPath: "/image/tab/camera.png",
                 text: ""
             },
             {
                 pagePath: "/index/index",
-                iconPath: "/image/tab_history_sel.png",
-                selectedIconPath: "/image/tab_history.png",
+                iconPath: "/image/tab/history.png",
+                selectedIconPath: "/image/tab/_history.png",
                 text: "文档"
             },
             {
                 pagePath: "/logs/logs",
-                iconPath: "/image/tab_audio.png",
-                selectedIconPath: "/image/tab_audio.png",
+                iconPath: "/image/tab/audio.png",
+                selectedIconPath: "/image/tab/audio.png",
                 text: ""
             },
 
             {
                 pagePath: "/myself/myself",
-                iconPath: "/image/tab_myself_sel.png",
-                selectedIconPath: "/image/tab_myself.png",
+                iconPath: "/image/tab/myself.png",
+                selectedIconPath: "/image/tab/_myself.png",
                 text: "我的"
             }
 
