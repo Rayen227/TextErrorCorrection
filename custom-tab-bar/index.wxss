@@ -52,7 +52,7 @@
 
 .tool cover-image{
     /* display: block; */
-    width: 64px;
-    height: 64px;
+    width: 84rpx;
+    height: 84rpx;
     /* margin-top: -30rpx; */
 }
