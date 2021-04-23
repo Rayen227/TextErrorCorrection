@@ -3,6 +3,7 @@
 const app = getApp();
 const window = require('../../utils/window.js');
 const md5 = require('../../utils/md5.js');
+var page;
 Page({
     data: {
 
@@ -216,4 +217,8 @@ Page({
         });
     }
 
-})
+});
+
+// module.exports = {
+//     rfRq: Page.rfRq
+// }
