@@ -1,5 +1,7 @@
 const indf = require('../pages/index/index.js');
 const window = require('../utils/window.js');
+const app = getApp();
+
 Component({
     data: {
         selected: 0,
@@ -7,49 +9,66 @@ Component({
         selectedColor: "#7A7E83",
         list: [
             {
-                pagePath: "/index/index",
+                pagePath: "/pages/index/index",
                 iconPath: "/image/tab/index.png",
                 selectedIconPath: "/image/tab/_index.png",
-                text: "首页"
+                text: "首页",
+                color: "#7A7E83",
+                selectedColor: "#0ABC3B"
+
             },
             {
                 pagePath: "",
                 iconPath: "/image/tab/camera.png",
                 selectedIconPath: "/image/tab/camera.png",
-                text: ""
+                text: "",
+                color: "#7A7E83",
+                selectedColor: "#0ABC3B"
             },
             {
-                pagePath: "/index/index",
+                pagePath: "/pages/history/history",
                 iconPath: "/image/tab/history.png",
                 selectedIconPath: "/image/tab/_history.png",
-                text: "文档"
+                text: "文档",
+                color: "#7A7E83",
+                selectedColor: "#0ABC3B"
             },
             {
                 pagePath: "",
                 iconPath: "/image/tab/audio.png",
                 selectedIconPath: "/image/tab/audio.png",
-                text: ""
+                text: "",
+                color: "#7A7E83",
+                selectedColor: "#0ABC3B"
             },
 
             {
-                pagePath: "/myself/myself",
+                pagePath: "/pages/myself/myself",
                 iconPath: "/image/tab/myself.png",
                 selectedIconPath: "/image/tab/_myself.png",
-                text: "我的"
+                text: "我的",
+                color: "#7A7E83",
+                selectedColor: "#0ABC3B"
             }
 
         ]
     },
     attached() {
+        this.setData({
+            selected: app.globalData.selected
+        })
     },
 
     methods: {
         switchTab(e) {
-            console.log(this);
-            const data = e.currentTarget.dataset
-            const url = data.path
+            // console.log(this);
+            const data = e.currentTarget.dataset;
+            const url = data.path;
             const index = e.currentTarget.dataset.index;
-            console.log(index);
+            this.setData({
+                selected: index
+            });
+            app.globalData.selected = index;
             if (index == 1) {
                 cam();
                 return;
@@ -58,9 +77,8 @@ Component({
                 return;
             }
             wx.switchTab({ url });
-            this.setData({
-                selected: data.index
-            });
+
+            console.log(this.data.selected);
         }
     }
 });

@@ -57,7 +57,8 @@ App({
     globalData: {
         userInfo: null,
         openid: null,
-        text: ''
+        text: '',
+        selected: 0
     }
 });
 
