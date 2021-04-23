@@ -1,5 +1,6 @@
 Page{
-
+background-image: url(https://7465-test-h8qbc-1301182329.tcb.qcloud.la/textCorr/source/backgrounimg.png?sign=5593083f38390671305fa035c3435514&t=1619150509);
+ background-size: 100% 100%; 
 }
 
 .container{
