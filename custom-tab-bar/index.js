@@ -71,10 +71,11 @@ Component({
             }
             else {
                 wx.switchTab({ url });
+                this.setData({
+                    selected: index
+                });
             }
-            this.setData({
-                selected: index
-            });
+
         },
         test() {
             console.log("bind:change");
