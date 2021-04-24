@@ -1,11 +1,11 @@
 {
     "pages": [
+        "pages/history/history",
         "pages/index/index",
         "pages/files/files",
         "pages/test/test",
         "pages/login/login",
         "pages/myself/myself",
-        "pages/history/history",
         "pages/logs/logs"
     ],
     "window": {
@@ -28,6 +28,7 @@
             }
         ]
     },
+    "usingComponents": {},
     "style": "v2",
     "sitemapLocation": "sitemap.json"
 }

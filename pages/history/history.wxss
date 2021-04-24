@@ -1,1 +1,5 @@
-/* pages/history/history.wxss */
+/* .item{
+    width: 80%;
+    height: 30rpx;
+    border: 1px solid #000;
+} */

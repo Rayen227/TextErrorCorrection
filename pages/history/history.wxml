@@ -1,2 +1,9 @@
-<!--pages/history/history.wxml-->
-<text>pages/history/history.wxml</text>
+<view class="container" hover-class="none" hover-stop-propagation="false">
+    <view class="top" hover-class="none" hover-stop-propagation="false">历史文档</view>
+    <view class="content" hover-class="none" hover-stop-propagation="false">
+        <view class="item" wx:for="{{history}}" wx:for-item="item" wx:key="index">
+            {{item.title}}
+        </view>
+        <!-- <view class="" hover-class="none" hover-stop-propagation="false">{{history[0].title}}</view> -->
+    </view>
+</view>
