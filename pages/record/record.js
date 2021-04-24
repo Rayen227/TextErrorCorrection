@@ -1,28 +1,35 @@
-
+const request = require('../../utils/request.js');
 var app = getApp(),
     rm = wx.getRecorderManager();
 //录音停止时调用
 rm.onStop(function (e) {
     var a = this;
+
+    console.log(e);
+
+    request.readFile(e.tempFilePath, 'audio', 'mp3', function () {
+
+    });
+
     // wx.showLoading({
     //     title: "正在识别..."
     // });
 
     //上传逻辑
-    var n = {
-        url: app.globalData.url + "upload",
-        filePath: e.tempFilePath,
-        name: "music",
-        header: {
-            "Content-Type": "application/json"
-        },
-        success: function (res) {
-            // wx.hideLoading({});
-            console.log(res);
-        },
-        fail: console.error
-    };
-    wx.uploadFile(n);
+    // var n = {
+    //     url: app.globalData.url + "upload",
+    //     filePath: e.tempFilePath,
+    //     name: "music",
+    //     header: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     success: function (res) {
+    //         // wx.hideLoading({});
+    //         console.log(res);
+    //     },
+    //     fail: console.error
+    // };
+    // wx.uploadFile(n);
 }),
     Page({
 
