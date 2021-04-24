@@ -3,7 +3,7 @@ const app = getApp();
 
 Component({
     data: {
-        selected: 0,
+        selected: null,
         color: "#7A7E83",
         selectedColor: "#7A7E83",
         list: [
@@ -52,22 +52,15 @@ Component({
         ]
     },
     attached() {
-        // this.setData({
-        //     selected: app.globalData.selected
-        // });
-        // console.log("att:", this.data.selected);
     },
 
     methods: {
+
         switchTab(e) {
-            // console.log(this);
+            // console.log(this.getTabBar().data);
             const data = e.currentTarget.dataset;
             const url = data.path;
             const index = e.currentTarget.dataset.index;
-            // this.setData({
-            //     selected: index
-            // });
-            // app.globalData.selected = index;
             if (index == 1) {
                 cam();
             }
@@ -83,7 +76,9 @@ Component({
             this.setData({
                 selected: index
             });
-            // console.log("data:", this.data.selected);
+        },
+        test() {
+            console.log("bind:change");
         }
     }
 });
