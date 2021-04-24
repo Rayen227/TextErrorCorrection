@@ -1,10 +1,15 @@
+
+
 // index.js
 // 获取应用实例
 const app = getApp();
 const window = require('../../utils/window.js');
 const md5 = require('../../utils/md5.js');
 var page;
+
+
 Page({
+
     data: {
 
     },
@@ -218,6 +223,19 @@ Page({
     }
 
 });
+
+Component({
+    pageLifetimes: {
+      show() {
+        if (typeof this.getTabBar === 'function' &&
+          this.getTabBar()) {
+          this.getTabBar().setData({
+            selected: 0
+          })
+        }
+      }
+    }
+  });
 
 // module.exports = {
 //     rfRq: Page.rfRq
