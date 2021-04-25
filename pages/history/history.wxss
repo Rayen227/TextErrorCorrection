@@ -1,5 +1,47 @@
-/* .item{
-    width: 80%;
-    height: 30rpx;
-    border: 1px solid #000;
-} */
+.container{
+    width: 100%;
+    padding: 0;
+}
+
+.top{
+    font-size: 60rpx;
+    font-family: SimSun;
+    font-weight: 700;
+    margin-top: 44rpx;
+    margin-bottom: 44rpx;
+}
+
+
+
+
+.item{
+    display: inline-block;
+    width: 100%;
+    border-top: 1rpx solid rgb(117, 116, 116);
+    font-family: SimSun;
+    padding: 16rpx;
+}
+
+.suolue{
+    display: inline-block;
+    width: 100rpx;
+    height: 100rpx;
+    margin-left: 12rpx;
+    /* margin-top: 20rpx; */
+}
+
+.mid{
+    display: inline-block;
+    margin-left: 32rpx;
+    line-height: 44rpx;
+}
+
+.title{
+    font-size: 36rpx;
+    font-weight: 600;
+}
+
+.time{
+    font-size: 32rpx;
+    color: rgb(110, 110, 110);
+}
