@@ -1,4 +1,7 @@
 // pages/myself/myself.js
+
+
+
 Page({
 
     /**

@@ -149,4 +149,17 @@ Page({
     onShareAppMessage: function () {
 
     }
-})
+});
+
+Component({
+    pageLifetimes: {
+      show() {
+        if (typeof this.getTabBar === 'function' &&
+          this.getTabBar()) {
+          this.getTabBar().setData({
+            selected: 2
+          })
+        }
+      }
+    }
+  })

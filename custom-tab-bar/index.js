@@ -16,7 +16,6 @@ Component({
                 text: "首页",
                 color: "#7A7E83",
                 selectedColor: "#0ABC3B"
-
             },
             {
                 pagePath: "",
@@ -64,7 +63,6 @@ Component({
             const data = e.currentTarget.dataset;
             const url = data.path;
             const index = e.currentTarget.dataset.index;
-
             if (index == 1) {
                 cam();
             }
@@ -74,6 +72,9 @@ Component({
                 });
             }
             else {
+                // this.setData({
+                //     selected: index
+                // });
                 wx.switchTab({ url });
                 this.setData({
                     selected: index
