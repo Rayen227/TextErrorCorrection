@@ -1,7 +1,8 @@
+<view class="sp" hover-class="none" hover-stop-propagation="false"></view>
 <view class="head">
-    <progress strokeWidth="4" percent="{{value}}" wx:if="{{showPg}}"></progress>
+    <!-- <progress strokeWidth="4" percent="{{value}}" wx:if="{{showPg}}"></progress> -->
     <view class="dot {{isTouchStart==true?'dot-blowup':''}} {{isTouchEnd==true?'dot-zoomout':''}}" style="display:{{isDot}}"></view>
-    <view class="record" bindtouchstart="recordStart" bindtouchend="recordTerm">
-        <image mode="widthFix" src="../../images/record.png"></image>
+    <view class="record" style="background:{{on?'rgba(92, 212, 76)':'rgb(212, 76, 76)'}};" bind:tap="recordStart">
+        <!-- <image mode="widthFix" src="../../images/record.png"></image> -->
     </view>
 </view>

@@ -44,7 +44,9 @@ rm.onStop(function (e) {
             value: '100',
             touchStart: 0,
             touchEnd: 0,
-            vd: ''
+            vd: '',
+            color: "rgb(212, 76, 76)",
+            on: false
         },
 
         /**
@@ -80,6 +82,14 @@ rm.onStop(function (e) {
          * 长按录音开始
          */
         recordStart: function (e) {
+            this.data.on = !this.data.on;
+            this.setData({
+                on: this.data.on
+            });
+            if (!this.data.on) {
+                this.recordTerm();
+                return;
+            }
             var n = this;
             rm.start({
                 format: "mp3",
@@ -109,7 +119,7 @@ rm.onStop(function (e) {
             rm.stop(), this.setData({
                 isTouchEnd: true,
                 isTouchStart: false,
-                touchEnd: e.timeStamp,
+                // touchEnd: e.timeStamp,
                 showPg: false,
                 value: 100
             }), clearInterval(this.timer);
