@@ -1,14 +1,28 @@
-.container{
+.hr {
+    width: 100%;
+    height: 15px;
+}
+
+
+.container{ 
     width: 100%;
     padding: 0;
 }
 
 .top{
-    font-size: 60rpx;
+    height: 150px;
+    width: 100%;
+    text-align: center;
+    font-size: 52rpx;
     font-family: SimSun;
     font-weight: 700;
-    margin-top: 44rpx;
-    margin-bottom: 44rpx;
+    background: #9bebfa;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    /* margin-top: 44rpx; */
+    /* margin-bottom: 44rpx; */
 }
 
 
@@ -17,8 +31,8 @@
 .item{
     display: inline-block;
     width: 100%;
-    border-top: 1rpx solid rgb(117, 116, 116);
-    font-family: SimSun;
+    /* border-bottom: 1rpx solid rgb(117, 116, 116); */
+    /* font-family: SimSun; */
     padding: 16rpx;
 }
 
@@ -32,16 +46,16 @@
 
 .mid{
     display: inline-block;
-    margin-left: 32rpx;
+    margin-left: 24rpx;
     line-height: 44rpx;
 }
 
 .title{
-    font-size: 36rpx;
-    font-weight: 600;
+    font-size: 28rpx;
+    font-weight: 500;
 }
 
 .time{
-    font-size: 32rpx;
+    font-size: 24rpx;
     color: rgb(110, 110, 110);
 }

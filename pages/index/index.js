@@ -25,6 +25,17 @@ Component({
                 })
             }
 
+            // wx.getUserInfo({
+            //     withCredentials: 'false',
+            //     lang: 'zh_CN',
+            //     timeout: 10000,
+            //     success: (result) => {
+            //         console.log(result.userInfo.avatarUrl);
+            //     },
+            //     fail: () => { },
+            //     complete: () => { }
+            // });
+
         }
     },
     methods: {
