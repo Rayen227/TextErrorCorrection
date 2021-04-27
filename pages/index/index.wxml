@@ -3,18 +3,23 @@
         <view bind:tap="doc" class="item1" hover-class="none" hover-stop-propagation="false">
             <image class="itemimg" src="../../image/document.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             <view class="itembox" selectable="false" space="false" decode="false">\n上传文档</view>
+            <view class="shuoming" >支持上传txt、word、pdf文件</view>
+            
         </view>
         <view bind:tap="img" class="item2" hover-class="none" hover-stop-propagation="false">
             <image class="itemimg" src="../../image/image.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             <view class="itembox" selectable="false" space="false" decode="false">\n上传图片</view>
+            <view class="shuoming" >相册挑选图片进行文字识别纠错</view>
         </view>
         <view bind:tap="adu" class="item3" hover-class="none" hover-stop-propagation="false">
             <image class="itemimg" src="../../image/audio.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             <view class="itembox" selectable="false" space="false" decode="false">\n上传音频</view>
+            <view class="shuoming" >选择音频文件转文字纠错</view>
         </view>
         <view bind:tap="text" class="item4" hover-class="none" hover-stop-propagation="false">
             <image class="itemimg" src="../../image/text.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             <view class="itembox" selectable="false" space="false" decode="false">\n文本输入</view>
+            <view class="shuoming" >直接输入文本进行纠错</view>
         </view>
     </view>
 </view>

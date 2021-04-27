@@ -85,13 +85,22 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu4AAAU2CAYA
     color: white;
 }
 .itemimg{
-    width: 150rpx;
-    height: 150rpx;
-    margin-left: 75rpx;
+    width: 75rpx;
+    height: 75rpx;
+    margin-left: 112rpx;
     margin-top: 25rpx;
 }
 
 .itembox{
-    margin-left: 84rpx;
-    margin-top: 25rpx;
+
+    /* margin-left: 84rpx; */
+    text-align: center;
+    margin-top: 10rpx;
+}
+
+.shuoming{
+    font-size: 30rpx;
+    text-align:center;
+    margin:12rpx;
+    color:gray;
 }
