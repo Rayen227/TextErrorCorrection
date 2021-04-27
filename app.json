@@ -10,7 +10,7 @@
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#1A2980",
+        "navigationBarBackgroundColor": "#9bebfa",
         "navigationBarTitleText": "AICorrector",
         "navigationBarTextStyle": "white"
     },
