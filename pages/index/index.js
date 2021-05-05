@@ -7,7 +7,7 @@ const request = require('../../utils/request.js');
 
 Component({
     data: {
-
+        onLaunch: true
     },
     pageLifetimes: {
         show() {
@@ -25,20 +25,15 @@ Component({
                 })
             }
 
-            // wx.getUserInfo({
-            //     withCredentials: 'false',
-            //     lang: 'zh_CN',
-            //     timeout: 10000,
-            //     success: (result) => {
-            //         console.log(result.userInfo.avatarUrl);
-            //     },
-            //     fail: () => { },
-            //     complete: () => { }
-            // });
-
         }
     },
     methods: {
+
+        start() {
+            this.setData({
+                onLaunch: false
+            });
+        },
 
         doc() {
             request.upload(this.docf, function (e) {

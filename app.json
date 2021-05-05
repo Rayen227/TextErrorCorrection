@@ -1,11 +1,11 @@
 {
     "pages": [
+        "pages/index/index",
+        "pages/test/test",
         "pages/history/history",
         "pages/myself/myself",
-        "pages/index/index",
         "pages/login/login",
         "pages/files/files",
-        "pages/test/test",
         "pages/logs/logs"
     ],
     "window": {
