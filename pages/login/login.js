@@ -15,7 +15,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(app.globalData)
+        console.log(app.globalData);
         wx.cloud.database().collection('Users').add({
             data: {
                 uid: md5.hex_md5(app.globalData.openid),

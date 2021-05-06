@@ -1,2 +1,44 @@
-<!--pages/myself/myself.wxml-->
-<text>pages/myself/myself.wxml</text>
+<view class="bg">
+    <view class="head">
+        <view class="headIcon">
+            <image src="../../image/avatar.jpg" style="width:70px;height:70px;"></image>
+        </view>
+        <view class="login">2 0 1 2</view>
+    </view>
+</view>
+<view class="hr"></view>
+<view class='item'>
+    <view class="title">手机绑定</view>
+    <view class="detail2">
+        <text>></text>
+    </view>
+</view>
+<view class="line"></view>
+<view class='item'>
+    <view class="title">详细设置</view>
+    <view class="detail2">
+        <text>></text>
+    </view>
+</view>
+<view class="hr"></view>
+<view class='item'>
+    <view class="title">使用帮助</view>
+    <view class="detail2">
+        <text>></text>
+    </view>
+</view>
+<view class="line"></view>
+<view class="item">
+    <view class="title">意见反馈</view>
+    <view class="detail2">
+        <text>></text>
+    </view>
+</view>
+<view class="line"></view>
+<view class="item">
+    <view class="title">团队介绍</view>
+    <view class="detail2">
+        <text>></text>
+    </view>
+</view>
+<view class="hr"></view>

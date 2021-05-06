@@ -1,5 +1,61 @@
-/* .item{
-    width: 80%;
-    height: 30rpx;
-    border: 1px solid #000;
-} */
+.hr {
+    width: 100%;
+    height: 15px;
+}
+
+
+.container{ 
+    width: 100%;
+    padding: 0;
+}
+
+.top{
+    height: 150px;
+    width: 100%;
+    text-align: center;
+    font-size: 52rpx;
+    font-family: SimSun;
+    font-weight: 700;
+    background: #9bebfa;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    /* margin-top: 44rpx; */
+    /* margin-bottom: 44rpx; */
+}
+
+
+
+
+.item{
+    display: inline-block;
+    width: 100%;
+    /* border-bottom: 1rpx solid rgb(117, 116, 116); */
+    /* font-family: SimSun; */
+    padding: 16rpx;
+}
+
+.suolue{
+    display: inline-block;
+    width: 100rpx;
+    height: 100rpx;
+    margin-left: 12rpx;
+    /* margin-top: 20rpx; */
+}
+
+.mid{
+    display: inline-block;
+    margin-left: 24rpx;
+    line-height: 44rpx;
+}
+
+.title{
+    font-size: 28rpx;
+    font-weight: 500;
+}
+
+.time{
+    font-size: 24rpx;
+    color: rgb(110, 110, 110);
+}

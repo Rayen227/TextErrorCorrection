@@ -1,25 +1,48 @@
-<view class="container" hover-class="none" hover-stop-propagation="false">
+<view class="containerR">
+    <!-- <view class="container" style="display:{{onLaunch?'block':'none'}}"> -->
+    <view class="remind-box" wx:if="{{remind}}"></view>
+    <block>
+        <image class="title" src="../images/hh4.png"></image>
+        <view class="content {{onLaunch?'':'content2'}}">
+            <view class="hd" style="transform:rotateZ({{angle}}deg);">
+                <open-data class="logo" type="userAvatarUrl"></open-data>
+                <!-- <image class="wave" src="../images/wave.png" mode="aspectFill"></image>
+                <image class="wave wave-bg" src="../images/wave.png" mode="aspectFill"></image> -->
+            </view>
+            <view class="bd" style="display:{{onLaunch?'block':'none'}}">
+                <image class="smalltitle" src="../images/hh.png"></image>
+                <view class="confirm-btn">
+                    <button open-type="getUserInfo" lang="zh_CN" bind:tap="start">立即体验</button>
+                </view>
+                <view class="copyright">
+                    @{{year}}
+                    <text bindtap='goTeam'>鹰眼纠谬</text>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="container" style="display:{{!onLaunch?'block':'none'}}" hover-class="none" hover-stop-propagation="false">
     <view class="itemBox" hover-class="none" hover-stop-propagation="false">
         <view bind:tap="doc" class="item1" hover-class="none" hover-stop-propagation="false">
             <image class="itemimg" src="../../image/document.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             <view class="itembox" selectable="false" space="false" decode="false">\n上传文档</view>
-            <view class="shuoming" >支持上传txt、word、pdf文件</view>
-            
+            <view class="shuoming">——支持上传txt、word、pdf文件</view>
         </view>
         <view bind:tap="img" class="item2" hover-class="none" hover-stop-propagation="false">
             <image class="itemimg" src="../../image/image.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             <view class="itembox" selectable="false" space="false" decode="false">\n上传图片</view>
-            <view class="shuoming" >相册挑选图片进行文字识别纠错</view>
+            <view class="shuoming">——从相册挑选图片进行文字识别纠错</view>
         </view>
         <view bind:tap="adu" class="item3" hover-class="none" hover-stop-propagation="false">
             <image class="itemimg" src="../../image/audio.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             <view class="itembox" selectable="false" space="false" decode="false">\n上传音频</view>
-            <view class="shuoming" >选择音频文件转文字纠错</view>
+            <view class="shuoming">——选择音频文件转换为文字进行纠错</view>
         </view>
         <view bind:tap="text" class="item4" hover-class="none" hover-stop-propagation="false">
             <image class="itemimg" src="../../image/text.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             <view class="itembox" selectable="false" space="false" decode="false">\n文本输入</view>
-            <view class="shuoming" >直接输入文本进行纠错</view>
+            <view class="shuoming">——直接从键盘输入文本进行纠错</view>
         </view>
     </view>
 </view>

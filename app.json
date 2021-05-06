@@ -1,17 +1,18 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/record/record",
+        "pages/test/test",
         "pages/history/history",
-        "pages/files/files",
         "pages/myself/myself",
-        "pages/login/login"
+        "pages/login/login",
+        "pages/files/files",
+        "pages/logs/logs"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#9bebfa",
         "navigationBarTitleText": "AICorrector",
-        "navigationBarTextStyle": "white"
+        "navigationBarTextStyle": "black"
     },
     "tabBar": {
         "custom": true,

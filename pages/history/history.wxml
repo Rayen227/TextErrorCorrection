@@ -1,8 +1,20 @@
 <view class="container" hover-class="none" hover-stop-propagation="false">
-    <view class="top" hover-class="none" hover-stop-propagation="false">历史文档</view>
+    <view class="top" hover-class="none" hover-stop-propagation="false">
+        <image class="" src="../../image/历史.png" style="width: 50px;height: 50px;"></image>
+        \n历史文档
+    </view>
+    <view class="hr"></view>
     <view bind:tap="test" class="content" hover-class="none" hover-stop-propagation="false">
         <view class="item" wx:for="{{history}}" wx:for-item="item" wx:key="index">
-            {{item.title}}
+            <image class="suolue" src="../../image/document.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+            <view class="mid" hover-class="none" hover-stop-propagation="false">
+                <view class="title" hover-class="none" hover-stop-propagation="false">
+                    {{item.title}}
+                </view>
+                <view class="time" hover-class="none" hover-stop-propagation="false">
+                    {{item.time}}
+                </view>
+            </view>
         </view>
         <!-- <view class="" hover-class="none" hover-stop-propagation="false">{{history[0].title}}</view> -->
     </view>

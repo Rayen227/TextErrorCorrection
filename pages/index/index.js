@@ -7,7 +7,7 @@ const request = require('../../utils/request.js');
 
 Component({
     data: {
-
+        onLaunch: true
     },
     pageLifetimes: {
         show() {
@@ -29,12 +29,18 @@ Component({
     },
     methods: {
 
+        start() {
+            this.setData({
+                onLaunch: false
+            });
+        },
+
         doc() {
             request.upload(this.docf, function (e) {
                 if (!e) {
                     return;
                 }
-                request.readFile(e.tempFilePath, 'audio', e.ext, function () {
+                request.readFile(e.tempFilePath, 'text', e.ext, function () {
                     wx.navigateTo({
                         url: '../files/files?type=document&ext=' + e.ext
                     });
