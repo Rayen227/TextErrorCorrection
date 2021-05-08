@@ -1,6 +1,7 @@
 // pages/files/files.js
 const md5 = require('../../utils/md5.js');
 const window = require('../../utils/window.js');
+const dbf = require('../../utils/dbf.js');
 const app = getApp();
 // const time = new Date();
 
@@ -91,8 +92,25 @@ Page({
                 window.success("纠错成功");
 
                 console.log("纠错结果", res);
+
                 then.curRes = res.data.data.result;
                 then.setRes();
+
+                var d = new Date();
+                var time = d.getFullYear() + "/" + d.getMonth() + "/" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes();
+
+
+                var his = {
+                    time: time,
+                    title: then.curText.substr(0, 8) + "...",
+                    bef: then.curText,
+                    aft: then.curRes
+                };
+
+                app.globalData.histqu.push(his);
+
+                dbf.updateHis(app.globalData.openid, app.globalData.histqu, function (res) { });
+
             },
             fail: () => {
 

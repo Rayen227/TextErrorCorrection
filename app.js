@@ -30,18 +30,21 @@ App({
                     responseType: 'text',
                     success: (result) => {
                         then.globalData.openid = result.data.openid;
-                        // console.log(then.globalData.openid);
                         wx.cloud.database().collection('Users').where({
-                            uid: md5.hex_md5(result.data.openid)
+                            _openid: result.data.openid
                         }).get({
                             success: function (res) {
+                                console.log(res);
                                 if (res.data.length == 0) {
+
                                     wx.redirectTo({
                                         url: '../login/login',
                                         fail: function (err) {
                                             console.log(err);
                                         }
                                     });
+                                } else {
+                                    then.globalData.histqu = res.data[0].histqu;
                                 }
 
                             }
@@ -58,6 +61,7 @@ App({
         userInfo: null,
         openid: null,
         text: '',
+        histqu: [],
         selected: 0
     }
 });

@@ -4,8 +4,8 @@
         \n历史文档
     </view>
     <view class="hr"></view>
-    <view bind:tap="test" class="content" hover-class="none" hover-stop-propagation="false">
-        <view class="item" wx:for="{{history}}" wx:for-item="item" wx:key="index">
+    <view class="content" hover-class="none" hover-stop-propagation="false">
+        <view bind:tap="export" class="item" wx:for="{{history}}" wx:for-item="item" wx:key="index" data-index="{{index}}">
             <image class="suolue" src="../../image/document.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             <view class="mid" hover-class="none" hover-stop-propagation="false">
                 <view class="title" hover-class="none" hover-stop-propagation="false">
