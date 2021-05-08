@@ -5,6 +5,7 @@ const app = getApp();
 
 Component({
     data: {
+        isshow:false,
         selected: null,
         color: "#7A7E83",
         selectedColor: "#7A7E83",

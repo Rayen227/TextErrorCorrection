@@ -58,7 +58,7 @@ App({
         userInfo: null,
         openid: null,
         text: '',
-        selected: 0
+        isshow: 0
     }
 });
 
