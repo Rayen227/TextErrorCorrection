@@ -1,5 +1,5 @@
-<!-- <view class="containerR"> -->
-<!-- <view class="container" style="display:{{onLaunch?'block':'none'}}">
+<view class="containerR" style="display:{{onLaunch?'block':'none'}}">
+    <!-- <view class="container" style="display:{{onLaunch?'block':'none'}}"> -->
     <view class="remind-box" wx:if="{{remind}}"></view>
     <block>
         <image class="title" src="../images/hh4.png"></image>
@@ -19,7 +19,8 @@
             </view>
         </view>
     </block>
-</view> -->
+</view>
+-->
 <!-- <view class="container" style="display:{{!onLaunch?'block':'none'}}" hover-class="none" hover-stop-propagation="false"> -->
 <view class="container" hover-class="none" hover-stop-propagation="false">
     <view class="itemBox" hover-class="none" hover-stop-propagation="false">

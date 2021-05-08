@@ -17,11 +17,12 @@ Component({
             this.aduf = ['mp3', 'm4a', 'wav'];
             this.RQTYPE = ['text', 'image_write', 'image_print', 'audio'];
 
-
+            const that = this
             if (typeof this.getTabBar === 'function' &&
-                this.getTabBar()) {
+                this.getTabBar() ) {
                 this.getTabBar().setData({
-                    selected: 0
+                    selected: 0,
+                    //isshow:true,
                 })
             }
 
@@ -33,6 +34,13 @@ Component({
             this.setData({
                 onLaunch: false
             });
+            if (typeof this.getTabBar === 'function' &&
+                this.getTabBar()) {
+                this.getTabBar().setData({
+                    selected: 0,
+                    isshow:true
+                })
+            }
         },
 
         doc() {

@@ -62,7 +62,8 @@ App({
         openid: null,
         text: '',
         histqu: [],
-        selected: 0
+        selected: 0,
+        isshow: 0
     }
 });
 
