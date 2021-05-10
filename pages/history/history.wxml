@@ -5,8 +5,11 @@
     </view>
     <view class="hr"></view>
     <view class="content" hover-class="none" hover-stop-propagation="false">
+        <view wx:if="{{history.length==0}}" class="none" hover-class="none" hover-stop-propagation="false">
+            还没有历史记录...
+        </view>
         <view bind:tap="export" class="item" wx:for="{{history}}" wx:for-item="item" wx:key="index" data-index="{{index}}">
-            <image class="suolue" src="../../image/document.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+            <image class="suolue" src="../../image/hisicon.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
             <view class="mid" hover-class="none" hover-stop-propagation="false">
                 <view class="title" hover-class="none" hover-stop-propagation="false">
                     {{item.title}}
@@ -16,6 +19,5 @@
                 </view>
             </view>
         </view>
-        <!-- <view class="" hover-class="none" hover-stop-propagation="false">{{history[0].title}}</view> -->
     </view>
 </view>

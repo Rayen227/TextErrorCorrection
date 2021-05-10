@@ -77,3 +77,18 @@
     background: transparent;
     transform: translate(-50%, -50%);
   }
+
+  .time{
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 44rpx;
+  }
+
+  .icon{
+    position:absolute;
+    height: 150rpx;
+    width: 150rpx;
+    top: 275rpx;
+    left: 302rpx;
+    z-index: 11;
+  }

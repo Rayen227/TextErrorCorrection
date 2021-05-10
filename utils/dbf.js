@@ -8,6 +8,19 @@ function isLogin(openid) {
 
 }
 
+function init(openid, userInfo, callback) {
+    db.collection('Users').add({
+        data: {
+            uid: md5.hex_md5(openid),
+            userInfo: userInfo,
+            histqu: []
+        },
+        success: res => {
+            callback(res);
+        },
+        fail: console.error
+    });
+}
 
 function updateHis(openid, histqu, callback) {
     db.collection("Users").where({
@@ -17,7 +30,6 @@ function updateHis(openid, histqu, callback) {
             histqu: histqu
         },
         success: res => {
-            console.log(res);
             callback(res);
         },
         fail: console.error
@@ -27,5 +39,5 @@ function updateHis(openid, histqu, callback) {
 
 
 module.exports = {
-    isLogin, updateHis
+    isLogin, init, updateHis
 }

@@ -28,9 +28,6 @@ Page({
     onLoad: function (options) {
         window.loading("加载中");
 
-        console.log("main:", options.type);
-
-
         this.ctor();
 
         this.curText = app.globalData.text;
@@ -50,13 +47,11 @@ Page({
     },
 
     setRes() {
-        // console.log(this.curRes);
         var rli = [];
         for (var i = 0; i < this.curRes.length; i++) {
             rli[i] = { 'text': this.curRes[i].text, 'bg': this.curRes[i].tag == 0 ? "white" : "#00B26A" }
         }
 
-        // console.log(rli);
 
         this.setData({
             resli: rli
@@ -90,8 +85,6 @@ Page({
                 }
 
                 window.success("纠错成功");
-
-                console.log("纠错结果", res);
 
                 then.curRes = res.data.data.result;
                 then.setRes();

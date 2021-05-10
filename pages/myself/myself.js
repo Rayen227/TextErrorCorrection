@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
-
+const app = getApp();
+const window = require('../../utils/window.js');
 Component({
     data: {
         hasUserInfo: true,
@@ -13,9 +14,13 @@ Component({
                 this.getTabBar()) {
                 this.getTabBar().setData({
                     selected: 4,
-                    isshow:true
-                })
+                    isshow: true
+                });
             }
+
+            this.setData({
+                userInfo: app.globalData.userInfo
+            });
         }
     },
     methods: {

@@ -7,8 +7,8 @@ rm.onStop(function (e) {
 
     console.log(e);
 
-    request.readFile(e.tempFilePath, 'audio', 'mp3', function () {
-
+    request.readFile(e.tempFilePath, 'audio', 'mp3', function (e) {
+        console.log(">>>", e);
     });
 
     // wx.showLoading({
@@ -46,7 +46,10 @@ rm.onStop(function (e) {
             touchEnd: 0,
             vd: '',
             color: "rgb(212, 76, 76)",
-            on: false
+            on: false,
+            hours: '0' + 0,   // 时
+            minute: '0' + 0,   // 分
+            second: '0' + 0    // 秒
         },
 
         /**
@@ -84,7 +87,10 @@ rm.onStop(function (e) {
         recordStart: function (e) {
             this.data.on = !this.data.on;
             this.setData({
-                on: this.data.on
+                on: this.data.on,
+                hours: '0' + 0,   // 时
+                minute: '0' + 0,   // 分
+                second: '0' + 0    // 秒
             });
             if (!this.data.on) {
                 this.recordTerm();
@@ -101,16 +107,64 @@ rm.onStop(function (e) {
                 isTouchEnd: false,
                 showPg: true,
             })
-            var a = 15, o = 10;
-            this.timer = setInterval(function () {
-                n.setData({
-                    value: n.data.value - 100 / 1500
-                }), (o += 10) >= 1e3 && o % 1e3 == 0 && (a--, console.log(a), a <= 0 && (rm.stop(),
-                    clearInterval(n.timer), n.animation2.scale(1, 1).step(), n.setData({
-                        animationData: n.animation2.export(),
-                        showPg: false,
-                    })));
-            }, 10);
+            // var a = 15, o = 10;
+            // this.timer = setInterval(function () {
+            //     n.setData({
+            //         value: n.data.value - 100 / 1500
+            //     }), (o += 10) >= 1e3 && o % 1e3 == 0 && (a--, console.log(a), a <= 0 && (rm.stop(),
+            //         clearInterval(n.timer), n.animation2.scale(1, 1).step(), n.setData({
+            //             animationData: n.animation2.export(),
+            //             showPg: false,
+            //         })));
+            // }, 10);
+
+            const that = this
+            var second = that.data.second
+            var minute = that.data.minute
+            var hours = that.data.hours
+            this.timer = setInterval(function () {  // 设置定时器
+                second++
+                if (second >= 60) {
+                    second = 0  //  大于等于60秒归零
+                    minute++
+                    if (minute >= 60) {
+                        minute = 0  //  大于等于60分归零
+                        hours++
+                        if (hours < 10) {
+                            // 少于10补零
+                            that.setData({
+                                hours: '0' + hours
+                            })
+                        } else {
+                            that.setData({
+                                hours: hours
+                            })
+                        }
+                    }
+                    if (minute < 10) {
+                        // 少于10补零
+                        that.setData({
+                            minute: '0' + minute
+                        })
+                    } else {
+                        that.setData({
+                            minute: minute
+                        })
+                    }
+                }
+                if (second < 10) {
+                    // 少于10补零
+                    that.setData({
+                        second: '0' + second
+                    })
+                } else {
+                    that.setData({
+                        second: second
+                    })
+                }
+            }, 1000);
+
+
         },
         /**
          * 长按录音结束
@@ -124,4 +178,4 @@ rm.onStop(function (e) {
                 value: 100
             }), clearInterval(this.timer);
         }
-    })
+    });

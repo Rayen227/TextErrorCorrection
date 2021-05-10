@@ -2,13 +2,13 @@
     <!-- <view class="container" style="display:{{onLaunch?'block':'none'}}"> -->
     <view class="remind-box" wx:if="{{remind}}"></view>
     <block>
-        <image class="title" src="../images/hh4.png"></image>
+        <!-- <image class="title" src="../images/hh4.png"></image> -->
         <view class="content {{onLaunch?'':'content2'}}">
             <view class="hd" style="transform:rotateZ({{angle}}deg);">
                 <open-data class="logo" type="userAvatarUrl"></open-data>
             </view>
             <view class="bd" style="display:{{onLaunch?'block':'none'}}">
-                <image class="smalltitle" src="../images/hh.png"></image>
+                <!-- <image class="smalltitle" src="../images/hh.png"></image> -->
                 <view class="confirm-btn">
                     <button open-type="getUserInfo" lang="zh_CN" bind:tap="start">立即体验</button>
                 </view>
@@ -20,9 +20,8 @@
         </view>
     </block>
 </view>
--->
-<!-- <view class="container" style="display:{{!onLaunch?'block':'none'}}" hover-class="none" hover-stop-propagation="false"> -->
-<view class="container" hover-class="none" hover-stop-propagation="false">
+<view class="container" style="display:{{!onLaunch?'block':'none'}}" hover-class="none" hover-stop-propagation="false">
+    <!-- <view class="container" hover-class="none" hover-stop-propagation="false"> -->
     <view class="itemBox" hover-class="none" hover-stop-propagation="false">
         <view bind:tap="doc" class="item1" hover-class="none" hover-stop-propagation="false">
             <image class="itemimg" src="../../image/document.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>

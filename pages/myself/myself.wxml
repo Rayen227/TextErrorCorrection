@@ -1,16 +1,16 @@
 <view class="bg">
     <view class="head">
         <view class="headIcon">
-            <image src="../../image/avatar.jpg" style="width:70px;height:70px;"></image>
+            <image src="{{userInfo.avatarUrl}}" style="width:70px;height:70px;"></image>
         </view>
-        <view class="login">2 0 1 2</view>
+        <view class="login">{{userInfo.nickName}}</view>
     </view>
 </view>
 <view class="hr"></view>
 <view class='item'>
     <view class="title">手机绑定</view>
     <view class="detail2">
-        <text>></text>
+        <text></text>
     </view>
 </view>
 <view class="line"></view>

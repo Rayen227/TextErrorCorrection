@@ -3,6 +3,16 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAIWCAYA
 background-size: 100% 100%; 
 }
 
+/* .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}  */
+
 .container{
     /* display: flex; */
     position: relative;
@@ -20,6 +30,7 @@ background-size: 100% 100%;
     width: 700rpx;
     height: 700rpx;
     margin-left: 25rpx;
+    margin-top: 200rpx;
     /* background-color: blue; */
 }
 

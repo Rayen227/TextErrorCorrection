@@ -1,9 +1,3 @@
-.hr {
-    width: 100%;
-    height: 15px;
-}
-
-
 .container{ 
     width: 100%;
     padding: 0;
@@ -29,11 +23,15 @@
 
 
 .item{
-    display: inline-block;
+    /* display: inline-block; */
+    display: flex;
     width: 100%;
     /* border-bottom: 1rpx solid rgb(117, 116, 116); */
     /* font-family: SimSun; */
     padding: 16rpx;
+    align-items: center;
+    border-bottom: 5rpx solid rgba(204, 204, 204, 0.2);
+    /* border: 1px solid #000; */
 }
 
 .suolue{
@@ -45,7 +43,7 @@
 }
 
 .mid{
-    display: inline-block;
+    /* display: inline-block; */
     margin-left: 24rpx;
     line-height: 44rpx;
 }
@@ -57,5 +55,11 @@
 
 .time{
     font-size: 24rpx;
+    color: rgb(110, 110, 110);
+}
+
+.none{
+    margin-top: 40rpx;
+    font-size: 28rpx;
     color: rgb(110, 110, 110);
 }

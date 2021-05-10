@@ -45,17 +45,20 @@ function readFile(url, type, ext, callback) {
                             if (res.statusCode == 404) {
                                 window.noloading();
                                 window.prompt("维护中");
+                                callback(res);
                                 return;
                             }
 
                             if (res.statusCode >= 300) {
                                 window.noloading();
                                 window.prompt("网络错误");
+                                callback(res);
                                 return;
                             }
                             if (res.data.code != 2000) {
                                 window.error(res.data.code);
                                 // window.prompt("网络不可用");
+                                callback(res);
                                 return;
                             }
 
@@ -65,7 +68,7 @@ function readFile(url, type, ext, callback) {
 
                             app.globalData.text = res.data.data.result;
 
-                            callback();
+                            callback(res);
 
 
                         },
@@ -121,7 +124,8 @@ function upload(acFileType, callback) {
 
             callback({ "tempFilePath": res.tempFiles[0].path, "ext": res.tempFiles[0].path.fileType() });
 
-        }
+        },
+        fail: console.error
     });
 }
 

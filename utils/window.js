@@ -17,6 +17,10 @@ function noloading() {
     wx.hideLoading({});
 }
 
+function hideToust() {
+    wx.hideToast({});
+}
+
 function error(code) {
     wx.showToast({
         title: "error:" + code,
@@ -25,6 +29,11 @@ function error(code) {
     });
 }
 
+
+/**
+ * 
+ * 模态框 
+ */
 function prompt(tip) {
     wx.showModal({
         title: '提示',
@@ -34,5 +43,5 @@ function prompt(tip) {
 }
 
 module.exports = {
-    success, loading, noloading, error, prompt
+    success, loading, noloading, error, prompt, hideToust
 }
