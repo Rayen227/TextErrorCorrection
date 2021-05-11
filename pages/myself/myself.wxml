@@ -10,7 +10,7 @@
 <view class='item'>
     <view class="title">手机绑定</view>
     <view class="detail2">
-        <text></text>
+        <text>></text>
     </view>
 </view>
 <view class="line"></view>

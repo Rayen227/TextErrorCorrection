@@ -59,6 +59,8 @@
 }
 
 .none{
+    width: 100%;
+    text-align: center;
     margin-top: 40rpx;
     font-size: 28rpx;
     color: rgb(110, 110, 110);
