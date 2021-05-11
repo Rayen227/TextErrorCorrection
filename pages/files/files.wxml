@@ -1,30 +1,5 @@
-<view class="container" hover-class="none" hover-stop-propagation="false">
-    <view class="box1" hover-class="none" hover-stop-propagation="false">
-        <view bind:tap="upload">
-            <image class="upload" src="{{topImage}}"></image>
-            <!-- <text>\n上传文件</text> -->
-        </view>
-        <!-- <image class="file" src="pdficon.png"></image> -->
-        <image class="file" style="display:{{iconVis}};" src="{{iconSrc}}"></image>
-    </view>
-    <view class="box2" hover-class="none" hover-stop-propagation="false">
-        <view class="preview" hover-class="none" hover-stop-propagation="false">
-            <textarea value="{{curText}}" bindinput="input" name="" id="" cols="30" rows="10" placeholder="上传文件/编辑文字"></textarea>
-            <view class="flex">
-                <!-- <view class="res" hover-class="none" hover-stop-propagation="false"> -->
-                <image class="resultIcon" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/result.png"></image>
-                <!-- <view class="resuleTip" selectable="false" space="false" decode="false">纠错结果</view> -->
-                <!-- </view> -->
-                <!-- <image class="sub" style="display:{{btnVis}};" bind:tap="submmit" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/submmit.png"> -->
-                <image class="sub" bind:tap="submmit" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/submmit.png">
-                    <!-- <image class="sub" bind:tap="submmit" src="cloud://test-h8qbc.7465-test-h8qbc-1301182329/textCorr/source/submmit.png"> -->
-                </image>
-            </view>
-        </view>
-        <view class="result" hover-class="none" hover-stop-propagation="false">
-            <scroll-view scroll-y="true" class="context">
-                <text wx:for="{{resli}}" style="background-color:{{item.bg}};">{{item.text}}</text>
-            </scroll-view>
-        </view>
-    </view>
-</view>
+<textarea value="{{curText}}" bindinput="input" name="" id="" cols="30" rows="10" placeholder="编辑你的文字"></textarea>
+<view class="sub" bind:tap="submmit"></view>
+<scroll-view scroll-y="true" class="context">
+    <text wx:for="{{resli}}" style="background-color:{{item.bg}};">{{item.text}}</text>
+</scroll-view>

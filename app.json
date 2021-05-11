@@ -1,17 +1,17 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/files/files",
         "pages/record/record",
         "pages/history/history",
         "pages/test/test",
         "pages/myself/myself",
-        "pages/login/login",
-        "pages/files/files"
+        "pages/login/login"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#9bebfa",
-        "navigationBarTitleText": "AICorrector",
+        "navigationBarTitleText": "鹰眼纠谬——EagleAI",
         "navigationBarTextStyle": "black"
     },
     "tabBar": {
