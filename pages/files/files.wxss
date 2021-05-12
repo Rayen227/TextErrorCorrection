@@ -56,6 +56,9 @@
     height: 350rpx;
     top: 126rpx;
     left: 37rpx;
+
+    text-overflow:ellipsis;
+    word-wrap:break-word;
 }
 
 
