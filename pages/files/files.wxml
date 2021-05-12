@@ -1,5 +1,9 @@
-<textarea value="{{curText}}" bindinput="input" name="" id="" cols="30" rows="10" placeholder="编辑你的文字"></textarea>
-<view class="sub" bind:tap="submmit"></view>
+<view class="topbox"></view>
+<view class="butbox"></view>
+<view class="icon lick_1"></view>
+<view class="icon lick_2"></view>
+<textarea class="text" value="{{curText}}" bindinput="input" name="" id="" cols="30" rows="10" placeholder="编辑你的文字"></textarea>
+<image class="sub" bind:tap="submmit" src="../../image/button.png"></image>
 <scroll-view scroll-y="true" class="context">
     <text wx:for="{{resli}}" style="background-color:{{item.bg}};">{{item.text}}</text>
 </scroll-view>
