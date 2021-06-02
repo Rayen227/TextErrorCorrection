@@ -70,7 +70,7 @@ Page({
 
         var then = this;
         wx.request({
-            url: 'https://correct.cn1.utools.club/correct',
+            url: 'http://42.192.50.88:5000/correct',
             data: {
                 text: then.curText
             },

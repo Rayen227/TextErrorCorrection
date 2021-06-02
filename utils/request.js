@@ -30,8 +30,9 @@ function readFile(url, type, ext, callback) {
                 fileList: [res.fileID],
                 success: res => {
                     var src = res.fileList[0].tempFileURL;
+                    console.log("url: ", src);
                     wx.request({
-                        url: 'https://correct.cn1.utools.club/readfile',
+                        url: 'http://42.192.50.88:5000/readfile',
                         data: {
                             url: src,
                             type: type
@@ -41,6 +42,8 @@ function readFile(url, type, ext, callback) {
                         dataType: 'json',
                         responseType: 'text',
                         success: (res) => {
+
+                            console.log(res.data);
 
                             if (res.statusCode == 404) {
                                 window.noloading();
@@ -67,6 +70,7 @@ function readFile(url, type, ext, callback) {
 
 
                             app.globalData.text = res.data.data.result;
+
 
                             callback(res);
 
